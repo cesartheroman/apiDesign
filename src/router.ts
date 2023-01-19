@@ -5,7 +5,10 @@ const router = Router();
 /**
  * Product
  */
-router.get('/product', () => {});
+router.get('/product', (req, res) => {
+  // res.json({ message: req.shh_secret });
+  res.json({ message: 'henloJson!' });
+});
 router.get('/product/:id', () => {});
 router.put('/product/:id', () => {});
 router.post('/product', () => {});
