@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken';
 
-const createJWT = (user) => {
+export const createJWT = (user) => {
   const token = jwt.sign(
     {
       id: user.id,
@@ -10,4 +10,14 @@ const createJWT = (user) => {
   );
 
   return token;
+};
+
+export const authenticate = (req, res, next) => {
+  const bearer = req.headers.authorization;
+
+  if (!bearer) {
+    res.status(401);
+    res.json({ message: 'not authorized' });
+    return;
+  }
 };
