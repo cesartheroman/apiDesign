@@ -1,11 +1,12 @@
 import jwt from 'jsonwebtoken';
 import * as bcrypt from 'bcrypt';
 
-const comparePasswords = (password, hashedPassword) => {
+//bcrypt functions return a promise, unless the sync version is explicitly used
+export const comparePasswords = (password, hashedPassword) => {
   return bcrypt.compare(password, hashedPassword);
 };
 
-const hashPassword = (password) => {
+export const hashPassword = (password) => {
   return bcrypt.hash(password, 5);
 };
 
