@@ -1,5 +1,5 @@
 import { Router } from 'express';
-import { body, oneOf, validationResult } from 'express-validator';
+import { body } from 'express-validator';
 import handleInputErrors from './utils/middleware';
 
 const router = Router();
@@ -30,12 +30,17 @@ router.put(
     body('status').isIn(['IN_PROGRESS', 'LIVE', 'DEPRECATED', 'ARCHIVED']),
     body('version').optional().isString(),
     body('version').optional().isString(),
+    handleInputErrors,
   ],
   () => {}
 );
 router.post(
   '/update',
-  [body('title').exists().isString(), body('body').exists().isString()],
+  [
+    body('title').exists().isString(),
+    body('body').exists().isString(),
+    handleInputErrors,
+  ],
   () => {}
 );
 router.delete('/update/:id', () => {});
@@ -50,6 +55,7 @@ router.put(
   [
     body('name').optional().isString(),
     body('description').optional().isString(),
+    handleInputErrors,
   ],
   () => {}
 );
@@ -59,6 +65,7 @@ router.post(
     body('name').isString(),
     body('description').isString(),
     body('updateId').exists().isString(),
+    handleInputErrors,
   ],
   () => {}
 );
