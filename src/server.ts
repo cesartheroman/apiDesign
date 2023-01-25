@@ -3,8 +3,8 @@ import router from './router';
 import morgan from 'morgan';
 import cors from 'cors';
 
-import { authenticate } from './utils/auth';
-import { createNewUser, signin } from './handlers/user';
+import { authenticate } from './utils';
+import { createNewUser, signin } from './handlers';
 
 const app = express();
 

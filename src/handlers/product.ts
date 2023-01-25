@@ -1,8 +1,7 @@
-import { emitWarning } from 'process';
-import prisma from '../utils/db';
+import { prisma } from '../utils/';
 
 //GET All
-export const getProducts = async (req, res) => {
+export const getAllProducts = async (req, res) => {
   const user = await prisma.user.findUnique({
     where: {
       id: req.user.id,
@@ -15,7 +14,7 @@ export const getProducts = async (req, res) => {
   res.json({ data: user.products });
 };
 
-//GET One
+//GET One Product
 export const getOneProduct = async (req, res) => {
   const id = req.params.id;
 
@@ -34,7 +33,7 @@ export const createProduct = async (req, res) => {
   const product = await prisma.product.create({
     data: {
       name: req.body.name,
-      belongsTo: req.user.id,
+      belongsToId: req.user.id,
     },
   });
 
