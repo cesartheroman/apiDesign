@@ -1,5 +1,5 @@
-import prisma from '../utils/db';
-import { createJWT, hashPassword, comparePasswords } from '../utils/auth';
+import { prisma } from '../utils';
+import { createJWT, hashPassword, comparePasswords } from '../utils';
 
 //whern talking to a disc functions are alway async
 export const createNewUser = async (req, res) => {
