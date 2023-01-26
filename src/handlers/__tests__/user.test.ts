@@ -1,4 +1,3 @@
-import { after } from 'node:test';
 import { createNewUser } from '../index';
 
 describe('user handler', () => {
