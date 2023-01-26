@@ -1,5 +1,4 @@
 import merge from 'lodash.merge';
-import { env } from 'process';
 
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 const stage = process.env.STAGE || 'local';
