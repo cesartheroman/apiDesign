@@ -91,4 +91,10 @@ router.put(
 );
 router.delete('/updatepoint/:id', () => {});
 
+//For errors that happen in a subrouter, that error wouldn't bubble back up to the main router, and for that reason we would add something like below where we had a custom error handler at the bottomon of our routes
+router.use((err, req, res, next) => {
+  console.log(err);
+  res.json({ message: 'in router handler' });
+});
+
 export default router;
